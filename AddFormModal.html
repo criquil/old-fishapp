@@ -1,0 +1,67 @@
+<html>
+<!-- AddFormModal -->
+				<div id="AddFormModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Fishing Spot Creation.</h3>
+    </div>
+
+    <div class="modal-body">
+
+      <form id="myForm"  method="post" enctype="multipart/form-data">
+
+      <input type="hidden" name="myfile" value="1">
+		<div class="table-responsive">
+      <table class="table">
+        <tbody><tr><td>Place Name:</td><td><input type="text" name="title" id="title" style="width:300px"><span class="hide help-inline">This is required</span></td></tr>
+        <tr><td>Place Description:</td><td><textarea name="contect" style="width:300px;height:100px"></textarea></td></tr>
+			<div class="btn-group">
+			  <button type="button" class="btn btn-info">Type</button>
+			  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+				<li><a href="#">Rio</a></li>
+				<li><a href="#">Arroyo</a></li>
+				<li><a href="#">Lago</a></li>
+				<li><a href="#">Laguna</a></li>
+				<li><a href="#">Mar Abierto</a></li>
+				<li><a href="#">Mar Costa</a></li>
+			  </ul>
+			</div>
+			<br>
+			<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option1"> Option 1
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2"> Option 2
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option3"> Option 3
+  </label>
+</div>
+	  </tbody></table>
+	  </div>
+
+      </form>
+
+</div>
+<br/>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary" data-toggle="modal" data-dismiss="modal" href="upload.html" id="InfroTextSubmit">Save changes</button>
+    </div>
+
+	<!-- End AddFormModal -->
+</div>
+	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<script type="text/javascript" src="js/jquery.raty.js"></script>
+
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+</html>

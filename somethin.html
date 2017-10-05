@@ -1,0 +1,55 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTHi8StZe_3WPOsyqDwNjlkugwzO4V9Yc&sensor=false"></script>
+    <script type="text/javascript">
+    var map;
+    var geocoder = new google.maps.Geocoder();
+    var infowindow = new google.maps.InfoWindow();
+
+    function initialize()
+    {
+     var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+     var mapOptions =
+         {
+          zoom: 4,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+         }
+     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+     google.maps.event.addListener(map, 'click', function(event) {
+      placeMarker(event.latLng);
+      var myLatLng = event.latLng;
+      var lat = myLatLng.lat();
+      var lng = myLatLng.lng();
+      var latlng = new google.maps.LatLng(lat, lng);
+
+      //Code to reverse geocode follows
+       geocoder.geocode({'latLng': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+         if (results[1]) {
+          map.setZoom(11);
+          marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+          });
+          infowindow.setContent(results[1].formatted_address);
+          infowindow.open(map, marker);
+          document.forms["wheregoing"]["start"].value=results[1].formatted_address;
+        }
+       } else {
+        alert("Geocoder failed due to: " + status);
+       }
+      });
+     });
+    }
+
+  function placeMarker(location)
+    {
+    var marker = new google.maps.Marker({
+    position: location,
+    map: map
+ });
+
+  map.setCenter(location);
+}
+  </script>
+  <body onload="initialize()">
